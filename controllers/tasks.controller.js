@@ -39,9 +39,6 @@ const updateTask = async (req, res) => {
 		const { finishDate } = req.body;
 		const { task } = req;
 
-		// Method 1: Update by using the model
-		// await User.update({ name }, { where: { id } });
-
 		// Method 2: Update using a model's instance
 		await task.update({ finishDate });
 
@@ -57,12 +54,6 @@ const updateTask = async (req, res) => {
 const deleteTask = async (req, res) => {
 	try {
 		const { task } = req;
-
-		// Method 1: Delete by using the model
-		// User.destroy({ where: { id } })
-
-		// Method 2: Delete by using the model's instance
-		// await user.destroy();
 
 		// Method 3: Soft delete
 		await task.update({ status: 'deleted' });
